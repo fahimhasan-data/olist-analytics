@@ -20,6 +20,6 @@
 - Start every file from [`../00_solution_template.sql`](../00_solution_template.sql): story, metric definitions, grain, assumptions, query, validation, insight.
 - When the chapter is finished, write the chapter note in `reports/chapter_notes/m06.md` (Headline → Evidence → Action).
 
-📖 Case descriptions: [Problem Bank → Chapter 6](../../../docs/02_SQL_PROBLEM_BANK.md#module-6-black-friday--messy-data)
+📖 Case descriptions: [Problem Bank → Chapter 6](../../../docs/SQL_PROBLEM_BANK.md#module-6-black-friday--messy-data)
 
 _Git habit:_ one chapter = one branch (e.g. `feat/sql-m06-dates-text-nulls`) = one pull request.

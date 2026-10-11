@@ -4,7 +4,7 @@ Raw data is **not stored in Git** (size + license).
 
 1. Download: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
 2. Unzip the 9 CSV files into `data/raw/`
-3. Create the database and import into schema `raw`: see `docs/00_DBEAVER_DATABASE_AND_UPLOAD_GUIDE.md`
+3. Create the database and import into schema `raw`: see `docs/guides/DBEAVER_DATABASE_AND_UPLOAD_GUIDE.md`
 4. Run `sql/00_setup/00_inspect_loaded_tables.sql`, `01_build_clean_schema.sql`, `02_keys_indexes.sql`
 
 Expected files:

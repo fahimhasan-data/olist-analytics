@@ -18,6 +18,6 @@
 - Start every file from [`../00_solution_template.sql`](../00_solution_template.sql): story, metric definitions, grain, assumptions, query, validation, insight.
 - When the chapter is finished, write the chapter note in `reports/chapter_notes/m12.md` (Headline → Evidence → Action).
 
-📖 Case descriptions: [Problem Bank → Chapter 12](../../../docs/02_SQL_PROBLEM_BANK.md#module-12-board-meeting-the-final-cases)
+📖 Case descriptions: [Problem Bank → Chapter 12](../../../docs/SQL_PROBLEM_BANK.md#module-12-board-meeting-the-final-cases)
 
 _Git habit:_ one chapter = one branch (e.g. `feat/sql-m12-capstones`) = one pull request.

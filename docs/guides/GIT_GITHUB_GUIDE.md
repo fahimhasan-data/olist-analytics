@@ -54,7 +54,11 @@ git config --global --list
 ```
 > 💡 Privacy: GitHub → Settings → Emails → "Keep my email private" and use the `…@users.noreply.github.com` address shown there.
 
-### 2.3 Connect to GitHub securely (SSH key — recommended)
+### 2.3 Connect to GitHub (pick ONE)
+
+**Option 1 — HTTPS (easiest on Windows, recommended for your first upload).** There is nothing to set up. Use the `https://github.com/...` address of your repo. On your first `git push`, Git for Windows opens a browser window: click **Sign in with your browser**, approve on GitHub, return to VS Code. Windows remembers the login afterwards.
+
+**Option 2 — SSH key (more setup, no browser prompts later).**
 ```bash
 ssh-keygen -t ed25519 -C "your-github-email@example.com"   # press Enter for defaults
 cat ~/.ssh/id_ed25519.pub                                    # copy the output
@@ -63,41 +67,63 @@ GitHub → Settings → **SSH and GPG keys** → New SSH key → paste. Test:
 ```bash
 ssh -T git@github.com     # "Hi <username>! You've successfully authenticated"
 ```
-<details><summary>Prefer HTTPS? (alternative)</summary>
+> ⚠️ If your remote address starts with `git@github.com:` but you never set up a key, you will get `Permission denied (publickey)`. Switch to HTTPS: `git remote set-url origin https://github.com/<your-username>/olist-analytics.git`
 
-Install **GitHub CLI** (`winget install GitHub.cli`), run `gh auth login`, choose HTTPS, follow the browser flow. Passwords no longer work for Git operations — you need a token or this login.
-</details>
+### 2.4 Which terminal am I in? (Windows gotcha)
+The VS Code terminal can be **PowerShell** or **Command Prompt (cmd)**. The prompt tells you:
+
+| Prompt looks like | It is | Delete a folder with |
+|---|---|---|
+| `PS C:\Users\you\...>` | PowerShell | `Remove-Item -Recurse -Force <folder>` |
+| `C:\Users\you\...>` | Command Prompt | `rmdir /s /q <folder>` |
+
+Git commands (`git add`, `git commit`, ...) are identical in both. Only the *non-Git* commands differ. If you see `'Remove-Item' is not recognized`, you are in cmd.
 
 ---
 
 ## 3. Your first repository (Lab 1)
 
-**Option A — start on GitHub (easiest):**
-1. GitHub → **New repository** → name `olist-analytics` → Public → ✅ Add README → ❌ leave `.gitignore` empty (our starter pack brings its own) → Create.
-2. Clone it:
-```bash
-cd ~/Documents
-git clone git@github.com:<your-username>/olist-analytics.git
-cd olist-analytics
-code .
-```
-3. Copy the files from this starter pack into the folder (overwrite README and `.gitignore`).
+> Easiest path (the one least likely to produce errors): **create an EMPTY repo on GitHub, then push your local folder to it.**
 
-**Option B — start locally, push later:**
+**Step 1 — Create the empty repo on GitHub.** GitHub → **New repository** → name `olist-analytics` → Public → leave **"Add a README"**, **.gitignore** and **license** all **unticked** → Create. Copy the **HTTPS** address.
+
+**Step 2 — Turn your local folder into a repository.** Open the project folder in VS Code (`README.md` must be at the top level of the sidebar), open the terminal (Ctrl+`) and run:
 ```bash
-mkdir olist-analytics && cd olist-analytics
 git init
-git remote add origin git@github.com:<your-username>/olist-analytics.git
-# (create the empty repo on GitHub first)
+git branch -M main
+git status          # files in red = new, not yet saved
 ```
 
-**First commit & push:**
+**Step 3 — First commit.**
 ```bash
-git status                       # what changed?
-git add .                        # stage everything (review .gitignore first!)
-git commit -m "chore: initial project structure and SQL setup scripts"
-git push -u origin main          # -u links local main to origin/main
+git add .
+git commit -m "chore: initial project structure, docs and SQL setup scripts"
 ```
+`LF will be replaced by CRLF` warnings are harmless. If it says `Author identity unknown`, repeat step 2.2.
+
+**Step 4 — Connect and push.**
+```bash
+git remote add origin https://github.com/<your-username>/olist-analytics.git
+git remote -v                     # should show the address twice (fetch + push)
+git push -u origin main           # -u links local main to origin/main
+```
+A browser window asks you to sign in. After approving you should see `Writing objects: 100%` and `branch 'main' set up to track 'origin/main'`. Refresh the repo page on GitHub to check.
+
+<details><summary><b>First-push troubleshooting</b></summary>
+
+| Message | Meaning / fix |
+|---|---|
+| `fatal: not a git repository` | Wrong folder, or `git init` was skipped. Open the project folder and run `git init`. |
+| `nothing to commit, working tree clean` | Not an error: everything is already committed. Skip `git add`/`commit` and go to the remote step. |
+| `src refspec main does not match any` | No commit exists yet. Do step 3, then push. |
+| `failed to push some refs … fetch first` | The GitHub repo is not empty (it was created with a README). Run `git pull origin main --allow-unrelated-histories`, then `git push -u origin main`. If an editor asks for a message, save and close it. |
+| `remote origin already exists` | Run `git remote set-url origin https://github.com/<your-username>/olist-analytics.git` |
+| `Permission denied (publickey)` | The remote is an SSH address without a key. Switch to HTTPS (see 2.3). |
+| `Authentication failed` | The browser login did not finish. Run the push again and complete the sign-in. |
+| `.csv` files appear in `git status` | They are outside `data/raw/`. Move them there; `.gitignore` then hides them. |
+</details>
+
+**Alternative — clone first.** If you created the repo *with* a README, clone it (`git clone https://github.com/<your-username>/olist-analytics.git`), copy the project files in, overwrite README and `.gitignore`, then commit and push.
 
 ---
 
@@ -199,7 +225,7 @@ You can truthfully say: *"I managed my analytics project with feature branches, 
 | **Raw CSV data (~120 MB total)** | Repo bloat; license; GitHub blocks files >100 MB | Document download link in `data/README.md` |
 | DBeaver connection configs (`.dbeaver/`, `data-sources*.json`) | Contain credentials | ignored |
 
-The starter pack's `.gitignore` already covers this. **Check before every first push:** `git status` should show no CSV, no `.env`.
+This repo's `.gitignore` already covers this. **Check before every first push:** `git status` should show no CSV, no `.env`.
 
 > 🔥 If you accidentally commit a secret: **change the password immediately**. Deleting the file in a new commit does not remove it from history. Rotating the credential is the real fix.
 
@@ -216,6 +242,17 @@ The starter pack's `.gitignore` already covers this. **Check before every first 
 | Undo a **pushed** commit safely | `git revert <commit-hash>` (creates a new "undo" commit) |
 | Park work temporarily | `git stash` … later `git stash pop` |
 | "I broke everything" safety net | `git reflog` (history of where HEAD has been) |
+
+### Start completely over (local history only)
+Your files stay untouched; only Git's hidden `.git` history folder is deleted.
+
+| Terminal | Command |
+|---|---|
+| Command Prompt (cmd) | `rmdir /s /q .git` |
+| PowerShell | `Remove-Item -Recurse -Force .git` |
+| Git Bash / Mac / Linux | `rm -rf .git` |
+
+Check you are in the right folder first (`cd` prints it in cmd; `dir` should list `README.md`). Afterwards `git status` should say `fatal: not a git repository`. Then redo Lab 1 from step 2. If the GitHub repo also contains unwanted history, delete it (Settings → Danger Zone) and create a new **empty** one.
 
 **Rule of thumb:** local & unpushed → `reset` is fine. Already pushed/shared → use `revert`. Never force-push to `main`.
 

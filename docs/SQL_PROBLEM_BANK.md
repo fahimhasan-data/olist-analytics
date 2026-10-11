@@ -70,8 +70,10 @@ flowchart LR
 ### Ground rules
 - ⏱ Try **20 minutes** before opening a 💡 hint. Struggle is where learning happens.
 - 🤖 Use AI **after** you have a working answer: ask it to critique, find edge cases, or optimise.
-- 🌿 One chapter = one Git branch = one Pull Request (`docs/01_GIT_GITHUB_GUIDE.md`).
+- 🌿 One chapter = one Git branch = one Pull Request (`docs/guides/GIT_GITHUB_GUIDE.md`).
 - 📝 After each chapter write a **chapter note** (5–8 lines, story format) in `reports/chapter_notes/`.
+- 📓 Add a dated entry to `reports/learning_log.md` (what was hard, what you learned).
+- 🏆 Cases that feed a portfolio project are listed in `docs/PROJECTS.md` — give those extra polish.
 - 🗓 All queries start with `SET search_path TO olist, public;`
 - 🆕 Items marked **PG18** use a PostgreSQL 18 feature; everything else runs on PostgreSQL 14+.
 

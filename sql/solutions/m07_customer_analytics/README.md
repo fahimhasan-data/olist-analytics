@@ -22,6 +22,6 @@
 - Start every file from [`../00_solution_template.sql`](../00_solution_template.sql): story, metric definitions, grain, assumptions, query, validation, insight.
 - When the chapter is finished, write the chapter note in `reports/chapter_notes/m07.md` (Headline → Evidence → Action).
 
-📖 Case descriptions: [Problem Bank → Chapter 7](../../../docs/02_SQL_PROBLEM_BANK.md#module-7-where-did-the-customers-go)
+📖 Case descriptions: [Problem Bank → Chapter 7](../../../docs/SQL_PROBLEM_BANK.md#module-7-where-did-the-customers-go)
 
 _Git habit:_ one chapter = one branch (e.g. `feat/sql-m07-customer-analytics`) = one pull request.
