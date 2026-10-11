@@ -1,0 +1,26 @@
+# ---------- Data (never commit raw data) ----------
+data/raw/*
+!data/raw/README.md
+*.csv
+*.zip
+*.parquet
+*.sqlite
+
+# ---------- Secrets (keep passwords out of Git) ----------
+.env
+*.env
+secrets/
+*.pem
+*.key
+
+# ---------- DBeaver / IDE (may contain credentials) ----------
+.dbeaver/
+data-sources*.json
+credentials-config.json
+.vscode/settings.json
+.idea/
+
+# ---------- OS ----------
+.DS_Store
+Thumbs.db
+desktop.ini
