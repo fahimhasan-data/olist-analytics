@@ -23,6 +23,6 @@
 - Start every file from [`../00_solution_template.sql`](../00_solution_template.sql): story, metric definitions, grain, assumptions, query, validation, insight.
 - When the chapter is finished, write the chapter note in `reports/chapter_notes/m03.md` (Headline → Evidence → Action).
 
-📖 Case descriptions: [Problem Bank → Chapter 3](../../../docs/02_SQL_PROBLEM_BANK.md#module-3-the-monday-ops-review)
+📖 Case descriptions: [Problem Bank → Chapter 3](../../../docs/SQL_PROBLEM_BANK.md#module-3-the-monday-ops-review)
 
 _Git habit:_ one chapter = one branch (e.g. `feat/sql-m03-ops-metrics`) = one pull request.

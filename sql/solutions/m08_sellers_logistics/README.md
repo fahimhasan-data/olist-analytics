@@ -22,6 +22,6 @@
 - Start every file from [`../00_solution_template.sql`](../00_solution_template.sql): story, metric definitions, grain, assumptions, query, validation, insight.
 - When the chapter is finished, write the chapter note in `reports/chapter_notes/m08.md` (Headline → Evidence → Action).
 
-📖 Case descriptions: [Problem Bank → Chapter 8](../../../docs/02_SQL_PROBLEM_BANK.md#module-8-the-seller-quality-crisis)
+📖 Case descriptions: [Problem Bank → Chapter 8](../../../docs/SQL_PROBLEM_BANK.md#module-8-the-seller-quality-crisis)
 
 _Git habit:_ one chapter = one branch (e.g. `feat/sql-m08-sellers-logistics`) = one pull request.

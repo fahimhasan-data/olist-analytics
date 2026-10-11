@@ -10,6 +10,8 @@
 - [ ] Results validated with **two independent checks** (row counts / totals reconcile / fan-out checked)
 - [ ] Each case ends with a Headline → Evidence → Action story
 - [ ] Chapter note written in `reports/chapter_notes/`
+- [ ] Learning-log entry added in `reports/learning_log.md`
+- [ ] If a portfolio project is finished: one-pager in `reports/insights/`, chart in `reports/figures/`, Key insights row added (see `docs/PROJECTS.md`)
 - [ ] No credentials or CSV data files committed
 - [ ] Commit messages follow `type(scope): summary`
 - [ ] README progress tracker updated

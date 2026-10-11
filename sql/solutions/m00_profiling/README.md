@@ -21,6 +21,6 @@
 - Start every file from [`../00_solution_template.sql`](../00_solution_template.sql): story, metric definitions, grain, assumptions, query, validation, insight.
 - When the chapter is finished, write the chapter note in `reports/chapter_notes/m00.md` (Headline → Evidence → Action).
 
-📖 Case descriptions: [Problem Bank → Chapter 0](../../../docs/02_SQL_PROBLEM_BANK.md#module-0-day-one-trust-nothing)
+📖 Case descriptions: [Problem Bank → Chapter 0](../../../docs/SQL_PROBLEM_BANK.md#module-0-day-one-trust-nothing)
 
 _Git habit:_ one chapter = one branch (e.g. `feat/sql-m00-profiling`) = one pull request.

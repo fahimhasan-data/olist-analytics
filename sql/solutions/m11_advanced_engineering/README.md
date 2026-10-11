@@ -21,6 +21,6 @@
 - Start every file from [`../00_solution_template.sql`](../00_solution_template.sql): story, metric definitions, grain, assumptions, query, validation, insight.
 - When the chapter is finished, write the chapter note in `reports/chapter_notes/m11.md` (Headline → Evidence → Action).
 
-📖 Case descriptions: [Problem Bank → Chapter 11](../../../docs/02_SQL_PROBLEM_BANK.md#module-11-building-the-platform)
+📖 Case descriptions: [Problem Bank → Chapter 11](../../../docs/SQL_PROBLEM_BANK.md#module-11-building-the-platform)
 
 _Git habit:_ one chapter = one branch (e.g. `feat/sql-m11-advanced-engineering`) = one pull request.
