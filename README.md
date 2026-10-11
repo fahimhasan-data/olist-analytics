@@ -222,4 +222,5 @@ Details, case lists and deliverables: [`docs/PROJECTS.md`](docs/PROJECTS.md).
 
 ## 🧑‍💻 Author
 
-**Your Name** · [LinkedIn](https://linkedin.com/in/your-profile) · [GitHub](https://github.com/your-username)
+**MD FAHIM HASAN JALANEY** · [LinkedIn](www.linkedin.com/in/
+md-fahim-hasan-jalaney) · [GitHub](https://github.com/fahimhasan-data)
